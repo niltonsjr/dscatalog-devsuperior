@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tb_category")
+@Table(name = "tb_category")
 public class Category implements Serializable {
     private static final long serialVersionUID = 462553300L;
 
@@ -22,7 +22,7 @@ public class Category implements Serializable {
     public Category() {
 
     }
-    
+
     public Category(Long id, String name) {
         this.id = id;
         this.name = name;
@@ -59,5 +59,5 @@ public class Category implements Serializable {
     public int hashCode() {
         return Objects.hash(id, name);
     }
-    
+
 }
