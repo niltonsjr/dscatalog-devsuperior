@@ -1,41 +1,40 @@
 package com.devsuperior.dscatalog.dto;
 
+import com.devsuperior.dscatalog.entities.Category;
 import java.io.Serializable;
 
-import com.devsuperior.dscatalog.entities.Category;
-
 public class CategoryDTO implements Serializable {
-    private static final long serialVersionUID = -587848138L;
 
-    private Long id;
-    private String name;
+  private static final long serialVersionUID = -587848138L;
 
-    public CategoryDTO() {
-    }
+  private Long id;
+  private String name;
 
-    public CategoryDTO(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+  public CategoryDTO() {}
 
-    public CategoryDTO(Category entity) {
-        this.id = entity.getId();
-        this.name = entity.getName();
-    }
+  public CategoryDTO(Long id, String name) {
+    this.id = id;
+    this.name = name;
+  }
 
-    public Long getId() {
-        return this.id;
-    }
+  public CategoryDTO(Category entity) {
+    this.id = entity.getId();
+    this.name = entity.getName();
+  }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  public Long getId() {
+    return this.id;
+  }
 
-    public String getName() {
-        return this.name;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public String getName() {
+    return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
 }
