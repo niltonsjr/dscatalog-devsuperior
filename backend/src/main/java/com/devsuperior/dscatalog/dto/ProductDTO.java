@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Set;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
+import javax.validation.constraints.Size;
 
 public class ProductDTO implements Serializable {
 
@@ -16,6 +17,7 @@ public class ProductDTO implements Serializable {
 
   private Long id;
 
+  @Size(min = 2, max = 60, message = "Deve ter entre 2 y 60 caracteres")
   @NotBlank(message = "Campo requerido")
   private String name;
 
