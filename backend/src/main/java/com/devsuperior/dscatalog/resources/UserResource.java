@@ -2,6 +2,7 @@ package com.devsuperior.dscatalog.resources;
 
 import com.devsuperior.dscatalog.dto.UserDTO;
 import com.devsuperior.dscatalog.dto.UserInsertDTO;
+import com.devsuperior.dscatalog.dto.UserUpdateDTO;
 import com.devsuperior.dscatalog.services.UserService;
 import java.net.URI;
 import javax.validation.Valid;
@@ -55,11 +56,11 @@ public class UserResource {
   @PutMapping(value = "/{id}")
   public ResponseEntity<UserDTO> update(
     @PathVariable Long id,
-    @Valid @RequestBody UserDTO dto
+    @Valid @RequestBody UserUpdateDTO dto
   ) {
-    dto = service.update(id, dto);
+    UserDTO newdto = service.update(id, dto);
 
-    return ResponseEntity.ok().body(dto);
+    return ResponseEntity.ok().body(newdto);
   }
 
   @DeleteMapping(value = "/{id}")

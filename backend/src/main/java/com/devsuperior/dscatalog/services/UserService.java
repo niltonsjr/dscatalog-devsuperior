@@ -1,16 +1,9 @@
 package com.devsuperior.dscatalog.services;
 
-import com.devsuperior.dscatalog.dto.RoleDTO;
-import com.devsuperior.dscatalog.dto.UserDTO;
-import com.devsuperior.dscatalog.dto.UserInsertDTO;
-import com.devsuperior.dscatalog.entities.Role;
-import com.devsuperior.dscatalog.entities.User;
-import com.devsuperior.dscatalog.repositories.RoleRepository;
-import com.devsuperior.dscatalog.repositories.UserRepository;
-import com.devsuperior.dscatalog.services.exceptions.DatabaseException;
-import com.devsuperior.dscatalog.services.exceptions.ResourceNotFoundException;
 import java.util.Optional;
+
 import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -19,6 +12,17 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.devsuperior.dscatalog.dto.RoleDTO;
+import com.devsuperior.dscatalog.dto.UserDTO;
+import com.devsuperior.dscatalog.dto.UserInsertDTO;
+import com.devsuperior.dscatalog.dto.UserUpdateDTO;
+import com.devsuperior.dscatalog.entities.Role;
+import com.devsuperior.dscatalog.entities.User;
+import com.devsuperior.dscatalog.repositories.RoleRepository;
+import com.devsuperior.dscatalog.repositories.UserRepository;
+import com.devsuperior.dscatalog.services.exceptions.DatabaseException;
+import com.devsuperior.dscatalog.services.exceptions.ResourceNotFoundException;
 
 @Service
 public class UserService {
@@ -60,7 +64,7 @@ public class UserService {
   }
 
   @Transactional
-  public UserDTO update(Long id, UserDTO dto) {
+  public UserDTO update(Long id, UserUpdateDTO dto) {
     try {
       User entity = repository.getOne(id);
       copyDtoToEntity(dto, entity);
