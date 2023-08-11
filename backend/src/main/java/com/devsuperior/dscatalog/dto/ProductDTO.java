@@ -7,15 +7,24 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
 
 public class ProductDTO implements Serializable {
 
   private static final long serialVersionUID = 2655056242L;
 
   private Long id;
+
+  @NotBlank(message = "Campo requerido")
   private String name;
+
+  @NotBlank(message = "Campo requerido")
   private String description;
+
+  @Positive(message = "Preço deve ser positivo")
   private Double price;
+
   private String imgUrl;
   private Instant date;
 
